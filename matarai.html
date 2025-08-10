@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>また来て来世</title>
+  <style>
+    body {
+      font-family: '游ゴシック', 'Yu Gothic', sans-serif;
+      background-color: #d6c6af;
+      color: #5c3a00;
+      text-align: center;
+      margin: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+    }
+
+
+    .item {
+      flex-basis: calc(33.333% - 20px);
+      box-sizing: border-box;
+    }
+
+
+    .item img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border: 3px solid #ddd;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      display: block;
+      margin: 0 auto;
+    }
+
+
+    .item img:hover {
+      transform: scale(1.05);
+      border-color: #5c3a00;
+    }
+
+    a {
+      text-decoration: none;
+      color: #5c3a00;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>また来て来世</h1>
+
+  <div class="gallery">
+    <div class="item">
+      <a href="images/matarai1.png" target="_blank">
+        <img src="images/matarai1.png" alt="画像1" />
+      </a>
+      <p class="title">1</p>
+    </div>
+
+   <div class="item">
+      <a href="images/matarai2.png" target="_blank">
+        <img src="images/matarai2.png" alt="画像2" />
+      </a>
+      <p class="title">2</p>
+    </div>
+
+   <div class="item">
+      <a href="images/matarai3.png" target="_blank">
+        <img src="images/matarai3.png" alt="画像3" />
+      </a>
+      <p class="title">3</p>
+    </div>
+
+   <div class="item">
+      <a href="images/matarai4.png" target="_blank">
+        <img src="images/matarai4.png" alt="画像4" />
+      </a>
+      <p class="title">4</p>
+    </div>
+
+
+
+    </div>
+
+  <p><a href="index.html">← メインページに戻る</a></p>
+</body>
+</html>
