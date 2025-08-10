@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>SugarPip</title>
+  <style>
+    /* ページ全体の余白リセット */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: '游ゴシック', 'Yu Gothic', sans-serif;
+      background-color: #d6c6af;
+      color: #5c3a00;
+      min-height: 100vh;
+      height: auto;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    /* タイトル領域 高さ200pxにして上下余白は5pxだけ */
+    header {
+      width: 100%;
+      height: 120px;
+      padding: 5px 20px; /* 上下5px左右20px */
+      box-sizing: border-box;
+      display: flex;
+      align-items: center; /* 垂直中央 */
+      background-color: transparent;
+    }
+
+    header img {
+      max-height: 100%;
+      width: auto;
+      display: block;
+      margin: 0; /* 画像周りの余白もゼロ */
+    }
+
+    /* 横並びコンテンツ */
+    .content {
+      display: flex;
+      gap: 20px;
+      padding: 0 20px 40px 20px;
+      box-sizing: border-box;
+      margin-top: 0; /* タイトルの下にすぐ */
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: flex-start;
+    }
+
+    /* サイドバー */
+    .sidebar {
+      width: 180px;
+      background-color: #917347;
+      border-radius: 10px;
+      padding: 15px 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 8px;
+      background: #fff;
+      border-radius: 6px;
+      color: #5c3a00;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.2s, color 0.2s;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .sidebar a:hover {
+      background-color: #e0d4c1;
+      color: #000;
+    }
+
+    /* プロフィール */
+    .profile {
+      width: 250px;
+      background-color: #fffaf4;
+      border: 2px solid #e6dccc;
+      border-radius: 10px;
+      padding: 20px;
+      box-sizing: border-box;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .profile .icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #d4b48c;
+      margin: 0 auto 10px auto;
+      display: block;
+    }
+
+    .profile h2 {
+      font-size: 20px;
+      color: #a5643c;
+      font-weight: bold;
+      text-align: center;
+      margin: 0 0 15px 0;
+    }
+
+    .profile p {
+      font-size: 13px;
+      margin: 3px 0;
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    /* 画像一覧 */
+    .image-list {
+      flex: 1;
+      background-color: #fffaf4;
+      border: 3px solid #d4b48c;
+      border-radius: 10px;
+      padding: 20px;
+      box-sizing: border-box;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-height: none;
+    }
+
+    .image-list h1 {
+      margin: 0 0 10px 0;
+      flex-shrink: 0;
+    }
+
+    .image-wrapper {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .image-wrapper a {
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: white;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .image-wrapper a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .image-wrapper img {
+      width: 250px;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .manga-wrapper {
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      flex-shrink: 0;
+    }
+
+    .manga-wrapper:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .manga-wrapper img {
+      width: 250px;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* スクロールバー */
+    .sidebar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+      background-color: rgba(0,0,0,0.2);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="top/sugarpip.png" alt="SugarPip タイトル" />
+  </header>
+
+  <div class="content">
+
+    <nav class="sidebar">
+      <a href="ppp1.html">ポピぱ1</a>
+      <a href="ppp2.html">ポピぱ2</a>
+      <a href="usv1.html">ウサビ1</a>
+      <a href="drs1.html">ドラズ1</a>
+      <a href="ppp3.html">ポピぱ3</a>
+      <a href="ppp4.html">ポピぱ4</a>
+    </nav>
+
+    <section class="profile">
+      <img src="top/wako.png" alt="わこのアイコン" class="icon" />
+      <h2>徳時わこ🪅</h2>
+      <p><strong>趣味：</strong>バスケ/水泳/カフェ巡り</p>
+      <p><strong>好き：</strong>ゲーム/お菓子/Vtuber</p>
+      <p><strong>性格：</strong>とにかく元気✨</p>
+      <p><strong>自己紹介：</strong>はじめまして、わこでございます！デブと女装と同一が好きな夢見オタクです！主に二次創作をメインに投稿しています。そして時々ではありますがオリジナル作品も投稿していく予定です！まだまだ至らない部分が多いですが、楽しんでいただけましたら幸いです！対戦よろしくお願いします！！</p>
+    </section>
+
+    <section class="image-list">
+      <h1>作品一覧</h1>
+
+      <div class="image-wrapper">
+        <a href="tatetori.html"><img src="top/tatetori.png" alt="11月のタテトリート横丁" /></a>
+        <a href="matarai.html"><img src="top/matarai.png" alt="また来て来世" /></a>
+      </div>
+
+      <div class="manga-wrapper">
+        <a href="manga1.html"><img src="manga1/manga1-1.png" alt="漫画の表紙" /></a>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
